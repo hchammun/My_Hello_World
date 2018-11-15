@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convert</title>
+	<meta name="viewport" charset="utf-8" content="width=device-width , initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.min.css">
+	
+	<script src="jquery.js"></script>
+	<script src="jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+
+	<div data-role="page" id="home" data-theme="b"><!-- Starting page div -->
+		
+		<div data-role="header">
+			<h1>Hansley's Calculator App </h1>
+		</div>
+
+
+		<div data-role="main" class="ui-content">
+
+			<form>
+				
+				<input type="text" name="num1" id="num1" placeholder="Enter your Number">
+
+				<label>From unit : </label><select name="from" id="from">
+					<option value="m">Meters</option>
+					<option value="cm">Centi-Metres</option>
+					<option value="ft">Feet</option>
+					<option value="inches">Inches</option>
+					<option value="yards">Yards</option>
+					<option value="miles">Miles</option>
+
+
+				</select>
+
+				<label>To unit : </label><select name="to" id="to">
+					<option value="cm">Centi-Metres</option>
+					<option value="ft">Feet</option>
+					<option value="inches">Inches</option>
+					<option value="yards">Yards</option>
+					<option value="km">Kilometers</option>
+					<option value="miles">Miles</option>
+					<option value="m">Meters</option>
+
+
+
+				</select>
+
+				 <p id="result" style="color:;">Result: <p id="error" style="color: red;"></p> </p>
+				 <!--<input type="text" name="result" id="result" data-role="button">-->
+
+				<a href="#" id="btnCal" data-role="button" >Calculate</a>
+				<input type="reset" name="reset" value="Reset" data-role="button" onclick="reload()">
+
+
+
+
+
+
+
+			</form>
+			
+		</div>
+
+
+		<div data-role="footer">
+			<p style="font-family: Times; text-align: center;margin: 8px;">&copy; Copyright | hansley_C</p>			
+		</div>
+
+
+	</div>
+
+
+<script>
+
+	
+	
+	$(document).ready(function(){
+
+		console.log("Good");
+
+		$('#btnCal').on('click',function(){
+			
+			console.log("Button click");
+
+			var num1 = parseFloat($('#num1').val());
+
+			var from = $('#from').val();
+
+			var to = $('#to').val();
+
+		//check numeric
+			if ($.isNumeric(num1)){
+
+			
+
+
+
+		//for meters
+			if(from == 'm' && to == 'cm'){
+
+				total = num1  / 0.01;
+
+			}
+
+			else if(from == 'm' && to == 'ft'){
+
+				total = num1 * 3.2808;
+			}
+
+			else if(from == 'm' && to == 'inches'){
+			
+				total = num1 * 39.370;
+			}	
+
+			else if(from == 'm' && to == 'yards'){
+			
+				total = num1 * 1.0936 ;
+			}
+
+			else if(from == 'm' && to == 'miles'){
+			
+				total = num1 * 0.00062137;
+			}
+
+			else if(from == 'm' && to == 'km'){
+			
+				total = num1 / 1000;
+			}
+
+			else if(from == 'm' && to == 'm'){
+			
+				total = num1 * 1;
+			}
+
+
+			//for cm
+
+			if(from == 'cm' && to == 'm'){
+
+				total = num1 / 100;
+			}
+
+			if(from == 'cm' && to == 'ft'){
+
+				total = num1 * 0.32808;
+			}
+
+			if(from == 'cm' && to == 'inches'){
+			
+				total = num1 * 0.39370;
+			}	
+
+			if(from == 'cm' && to == 'yards'){
+			
+				total = num1 * 0.010936 ;
+			}
+
+			if(from == 'cm' && to == 'miles'){
+			
+				total = num1 * 0.0000062137;
+			}
+
+			if(from == 'cm' && to == 'km'){
+			
+				total = num1 / 100000;
+			}
+
+			if(from == 'cm' && to == 'cm'){
+			
+				total = num1 * 1;
+			}
+
+
+
+			//for feet
+
+
+			if(from == 'ft' && to == 'm'){
+
+				total = num1 / 3.2808;
+			}
+
+			if(from == 'ft' && to == 'ft'){
+
+				total = num1 * 1;
+			}
+
+			if(from == 'ft' && to == 'inches'){
+			
+				total = num1 * 12;
+			}	
+
+			if(from == 'ft' && to == 'yards'){
+			
+				total = num1 * 0.333333 ;
+			}
+
+			if(from == 'ft' && to == 'miles'){
+			
+				total = num1 * 0.00018939;
+			}
+
+			if(from == 'ft' && to == 'km'){
+			
+				total = num1 / 3280.8;
+			}
+
+			if(from == 'ft' && to == 'cm'){
+			
+				total = num1 / 0.032808;
+			}
+
+			//for inches
+
+
+			if(from == 'inches' && to == 'm'){
+
+				total = num1 / 39.370;
+			}
+
+			if(from == 'inches' && to == 'ft'){
+
+				total = num1 / 0.083333;
+			}
+
+			if(from == 'inches' && to == 'inches'){
+			
+				total = num1 * 1;
+			}	
+
+			if(from == 'inches' && to == 'yards'){
+			
+				total = num1 * 0.027778 ;
+			}
+
+			if(from == 'inches' && to == 'miles'){
+			
+				total = num1 * 0.000015783;
+			}
+
+			if(from == 'inches' && to == 'km'){
+			
+				total = num1 / 39370;
+			}
+
+			if(from == 'inches' && to == 'cm'){
+			
+				total = num1 /0.39370;
+			}
+
+
+
+			//for yards
+
+			if(from == 'yards' && to == 'm'){
+
+				total = num1 / 1.0936;
+			}
+
+			if(from == 'yards' && to == 'ft'){
+
+				total = num1 * 3;
+			}
+
+			if(from == 'yards' && to == 'inches'){
+			
+				total = num1 * 36;
+			}	
+
+			if(from == 'yards' && to == 'yards'){
+			
+				total = num1 * 1;
+			}
+
+			if(from == 'yards' && to == 'miles'){
+			
+				total = num1 * 0.00056818;
+			}
+
+			if(from == 'yards' && to == 'km'){
+			
+				total = num1 / 1093.6;
+			}
+
+			if(from == 'yards' && to == 'cm'){
+			
+				total = num1 * 0.010936;
+			}
+
+
+
+
+			//for miles
+			if(from == 'miles' && to == 'm'){
+
+				total = num1 / 0.00062137;
+			}
+
+			if(from == 'miles' && to == 'ft'){
+
+				total = num1 * 5280;
+			}
+
+			if(from == 'miles' && to == 'inches'){
+			
+				total = num1 * 63360;
+			}	
+
+			if(from == 'miles' && to == 'yards'){
+			
+				total = num1 * 1760 ;
+			}
+
+			if(from == 'miles' && to == 'miles'){
+			
+				total = num1 * 1;
+			}
+
+			if(from == 'miles' && to == 'km'){
+			
+				total = num1 / 0.62137;
+			}
+
+			if(from == 'miles' && to == 'cm'){
+			
+				total = num1 * 0.0000062137;
+			}
+
+
+
+
+
+
+
+			//output results
+			$('#result').html("Result: "+total+" "+ to);
+
+		}//close isnumeric
+
+
+		else{
+
+			$('#error').html("Enter your Number and only numbers accepted");
+		}
+
+
+
+
+
+		});
+	});
+
+
+
+</script>
+</body>
+</html>
